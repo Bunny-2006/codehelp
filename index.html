@@ -1,3 +1,887 @@
+<style>
+    * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.main {
+    display: flex;
+    background-color: rgb(104, 246, 104);
+    justify-content: space-around;
+    height: 100px;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+}
+
+.logo h2 {
+    font-size: xx-large;
+    color: red;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar a {
+    margin-left: 30px;
+    display: flex;
+    font-size: larger;
+    color: black;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 10px 20px;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: background-color 1.5s ease, padding 1.5s ease, border-radius 1.5s ease;
+}
+
+.navbar a:hover {
+    background-color: red;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: background-color 1s ease, padding 1s ease, border-radius 1s ease;
+}
+
+
+.cnt {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: #C9EEDD;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cnt h1 {
+    font-size: 2.5rem;
+    margin: 15px 0;
+    font-family: system-ui;
+    font-weight: bold;
+}
+
+.cnt p {
+    margin: 15px 0;
+    line-height: 1.5;
+    max-width: 500px;
+    font-weight: bold;
+}
+
+.cnt button {
+    padding: 10px 20px;
+    background: #68f668;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.cnt button a {
+    text-decoration: 0;
+}
+
+.cnt .dim {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.cnt .dim img {
+    background: #68f668;
+    border-radius: 50%;
+    overflow: visible;
+    transition: 2.5s;
+}
+
+.cnt .dim img:hover {
+    background-color: yellow;
+    border-radius: 50%;
+    overflow: visible;
+    transition: 2.5s;
+}
+
+.cnt2 {
+    width: 100%;
+    height: fit-content;
+    background-color: yellow;
+}
+
+.products {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.products h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.product-container {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product {
+    background-color: white;
+    padding: 20px;
+    width: fit-content;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: 1.5s;
+    background: yellow;
+}
+
+.product img:hover {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: rgb(13, 255, 0);
+    transition: 1.5s;
+}
+
+.product h3 {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.product p {
+    font-size: 20px;
+    color: #888;
+    margin-top: 10px;
+}
+
+.about {
+    background-color: rgb(104, 246, 104);
+    padding: 20px;
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: yellow;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+    text-align: justify;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-content .imgs {
+    display: flex;
+    height: 250px;
+    justify-content: center;
+    background: aliceblue;
+    border-radius: 15px;
+}
+
+.about-content span {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.contact {
+    background-color: rgb(104, 246, 104);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+}
+
+.contact-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: yellow;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.contact-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+.contact-info strong {
+    color: #333;
+}
+
+.contact button {
+    background: red;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 10px;
+}
+
+.contact button a {
+    color: white;
+    text-decoration: 0;
+    cursor: pointer;
+}
+
+footer {
+    height: 100px;
+    background: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer p{
+    font-size: large;
+}
+
+.product details {
+    background: rgb(104, 246, 104);
+    display: inline;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: larger;
+}
+@media only screen and (min-width: 600px) {
+    .main {
+    display: flex;
+    background-color: rgb(104, 246, 104);
+    justify-content: space-around;
+    height: 100px;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+}
+
+.logo h2 {
+    font-size: xx-large;
+    color: red;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar a {
+    margin-left: 30px;
+    display: flex;
+    font-size: larger;
+    color: black;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 10px 20px;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: background-color 1.5s ease, padding 1.5s ease, border-radius 1.5s ease;
+}
+
+.navbar a:hover {
+    background-color: red;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: background-color 1s ease, padding 1s ease, border-radius 1s ease;
+}
+
+
+.cnt {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: #C9EEDD;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cnt h1 {
+    font-size: 2.5rem;
+    margin: 15px 0;
+    font-family: system-ui;
+    font-weight: bold;
+}
+
+.cnt p {
+    margin: 15px 0;
+        line-height: 1.5;
+        max-width: 350px;
+        font-weight: bold;
+}
+
+.cnt button {
+    padding: 10px 20px;
+    background: #68f668;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.cnt button a {
+    text-decoration: 0;
+}
+
+.cnt .dim {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.cnt .dim img {
+    background: #68f668;
+    border-radius: 50%;
+    overflow: visible;
+    transition: 2.5s;
+}
+
+.cnt .dim img:hover {
+    background-color: yellow;
+    border-radius: 50%;
+    overflow: visible;
+    transition: 2.5s;
+}
+
+.cnt2 {
+    width: 100%;
+    height: fit-content;
+    background-color: yellow;
+}
+
+.products {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.products h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.product-container {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product {
+    background-color: white;
+    padding: 20px;
+    width: fit-content;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: 1.5s;
+    background: yellow;
+}
+
+.product img:hover {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: rgb(13, 255, 0);
+    transition: 1.5s;
+}
+
+.product h3 {
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.product p {
+    font-size: 20px;
+    color: #888;
+    margin-top: 10px;
+}
+
+.about {
+    background-color: rgb(104, 246, 104);
+    padding: 20px;
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: yellow;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.about-content p {
+    font-size: 10px;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 15px;
+        text-align: justify;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+.about-content .imgs {
+    display: flex;
+    height: 250px;
+    justify-content: center;
+    background: aliceblue;
+    border-radius: 15px;
+}
+
+.about-content span {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.contact {
+    background-color: rgb(104, 246, 104);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+}
+
+.contact-content {
+    max-width: 1000px;
+    margin: 0 auto;
+   text-align: center;
+        background-color: yellow;
+        padding: 30px 100px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.contact-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.contact-info p {
+    font-size: 30px;
+}
+
+.contact-info strong {
+    color: #333;
+}
+
+.contact button {
+    background: red;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 10px;
+}
+
+.contact button a {
+    color: white;
+    text-decoration: 0;
+    cursor: pointer;
+    font-size: xx-large;
+}
+
+footer {
+    height: 100px;
+    background: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product details {
+    background: rgb(104, 246, 104);
+        display: inline;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 10px;
+}
+footer p{
+    font-size: xx-large;
+}
+}
+@media only screen and (min-width: 1020px){
+        
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.main {
+    display: flex;
+    background-color: rgb(104, 246, 104);
+    justify-content: space-around;
+    height: 100px;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+}
+
+.logo h2 {
+    font-size: xx-large;
+    color: red;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar a {
+    margin-left: 30px;
+    display: flex;
+    font-size: larger;
+    color: black;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 10px 20px;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: background-color 1.5s ease, padding 1.5s ease, border-radius 1.5s ease;
+}
+
+.navbar a:hover {
+    background-color: red;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: background-color 1s ease, padding 1s ease, border-radius 1s ease;
+}
+
+
+.cnt {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: #C9EEDD;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cnt h1 {
+    font-size: 2.5rem;
+    margin: 15px 0;
+    font-family: system-ui;
+    font-weight: bold;
+}
+
+.cnt p {
+    margin: 15px 0;
+    line-height: 1.5;
+    max-width: 500px;
+    font-weight: bold;
+}
+
+.cnt button {
+    padding: 10px 20px;
+    background: #68f668;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.cnt button a {
+    text-decoration: 0;
+}
+
+.cnt .dim {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.cnt .dim img {
+    background: #68f668;
+    border-radius: 50%;
+    overflow: visible;
+    transition: 2.5s;
+}
+
+.cnt .dim img:hover {
+    background-color: yellow;
+    border-radius: 50%;
+    overflow: visible;
+    transition: 2.5s;
+}
+
+.cnt2 {
+    width: 100%;
+    height: fit-content;
+    background-color: yellow;
+}
+
+.products {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.products h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.product-container {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product {
+    background-color: white;
+    padding: 20px;
+    width: fit-content;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: 1.5s;
+    background: yellow;
+}
+
+.product img:hover {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: rgb(13, 255, 0);
+    transition: 1.5s;
+}
+
+.product h3 {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.product p {
+    font-size: 20px;
+    color: #888;
+    margin-top: 10px;
+}
+
+.about {
+    background-color: rgb(104, 246, 104);
+    padding: 20px;
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: yellow;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+    text-align: justify;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-content .imgs {
+    display: flex;
+    height: 250px;
+    justify-content: center;
+    background: aliceblue;
+    border-radius: 15px;
+}
+
+.about-content span {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.contact {
+    background-color: rgb(104, 246, 104);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+}
+
+.contact-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: yellow;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.contact-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+.contact-info strong {
+    color: #333;
+}
+
+.contact button {
+    background: red;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 10px;
+}
+
+.contact button a {
+    color: white;
+    text-decoration: 0;
+    cursor: pointer;
+}
+
+footer {
+    height: 100px;
+    background: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product details {
+    background: rgb(104, 246, 104);
+    display: inline;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: larger;
+}
+}
+</style>
 <title>Rajeswari Industries</title>
 <link rel="icon" href="images/bell.png" src="">
 <link rel="stylesheet" href="style.css">
