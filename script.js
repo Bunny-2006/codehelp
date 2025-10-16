@@ -27,6 +27,7 @@ function loadFiles() {
   });
 }
 
+
 // Automatically close navbar on link click (mobile)
 document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
   link.addEventListener('click', () => {
@@ -38,31 +39,50 @@ document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
   });
 });
 
-
 // Filter files by type
 function filterFiles(type) {
-  fileList.innerHTML = "";
-  Object.keys(localStorage).forEach(key => {
-    if (key.startsWith("code_")) {
-      const data = JSON.parse(localStorage.getItem(key));
-      if (type==='all' || data.lang === type) {
-        const li = document.createElement("li");
-        li.className = "list-group-item list-group-item-action";
-        li.textContent = `${data.name} (${data.lang})`;
-        li.onclick = () => openFile(key);
-        fileList.appendChild(li);
+  const updateList = () => {
+    fileList.innerHTML = "";
+    Object.keys(localStorage).forEach(key => {
+      if (key.startsWith("code_")) {
+        const data = JSON.parse(localStorage.getItem(key));
+        if (type === 'all' || data.lang === type) {
+          const li = document.createElement("li");
+          li.className = "list-group-item list-group-item-action";
+          li.textContent = `${data.name} (${data.lang})`;
+          li.onclick = () => openFile(key);
+          fileList.appendChild(li);
+        }
       }
-    }
-  });
+    });
+  };
+
+  // Handle mobile navbar collapse first
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+  if (navbarCollapse.classList.contains('show')) {
+    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: true});
+    bsCollapse.hide();
+    setTimeout(updateList, 300);
+  } else updateList();
 }
 
 // Open file
 function openFile(key) {
   const data = JSON.parse(localStorage.getItem(key));
   currentFile = key;
-  filenameInput.value = data.name;
-  langSelect.value = data.lang;
-  codeArea.value = data.code;
+
+  const updateEditor = () => {
+    filenameInput.value = data.name;
+    langSelect.value = data.lang;
+    codeArea.value = data.code;
+  };
+
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+  if (navbarCollapse.classList.contains('show')) {
+    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: true});
+    bsCollapse.hide();
+    setTimeout(updateEditor, 300);
+  } else updateEditor();
 }
 
 // Generate unique ID
@@ -124,13 +144,17 @@ function adminLogout() {
 function toggleAdminUI(admin){
   loginBtn.classList.toggle("d-none",admin);
   logoutBtn.classList.toggle("d-none",!admin);
+
+  // Only admin sees save, delete, new buttons
   saveBtn.classList.toggle("d-none",!admin);
   deleteBtn.classList.toggle("d-none",!admin);
+  newFileBtn.classList.toggle("d-none",!admin);
+
+  // Editor editable only for admin
   filenameInput.disabled = !admin;
   langSelect.disabled = !admin;
   codeArea.readOnly = !admin;
   codeArea.classList.toggle("readonly",!admin);
-  newFileBtn.classList.toggle("d-none",!admin);
 }
 
 // Event listeners
