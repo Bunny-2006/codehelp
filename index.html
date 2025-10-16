@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeVault Made By Dhanush</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-cyan" href="#">💻 CodeVault Pro</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">All Files</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="filterFiles('c')">C Files</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="filterFiles('cpp')">C++ Files</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="filterFiles('py')">Python Files</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="filterFiles('txt')">Text Files</a></li>
+      </ul>
+      <button class="btn btn-outline-light btn-sm me-2" id="loginBtn">Admin Login</button>
+      <button class="btn btn-danger btn-sm d-none" id="logoutBtn">Logout</button>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="container mt-5 pt-5">
+    <div class="row g-4">
+      <!-- Left: File List -->
+      <div class="col-md-4 fade-in">
+        <div class="card shadow-sm file-card">
+          <div class="card-body">
+            <h5 class="card-title text-center mb-3">📁 Saved Files</h5>
+            <ul class="list-group file-list" id="fileList"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Editor -->
+      <div class="col-md-8 fade-in">
+        <div class="card shadow-lg code-card">
+          <div class="card-body">
+            <div class="mb-2">
+              <input type="text" id="filename" class="form-control" placeholder="Filename (e.g. hello.py)" disabled>
+            </div>
+            <div class="mb-2">
+              <select id="language" class="form-select" disabled>
+                <option value="txt">Plain Text (.txt)</option>
+                <option value="c">C (.c)</option>
+                <option value="cpp">C++ (.cpp)</option>
+                <option value="py">Python (.py)</option>
+                <option value="java">Java (.java)</option>
+              </select>
+            </div>
+            <textarea id="codeArea" class="form-control editor-box readonly" placeholder="Login as admin to edit code" spellcheck="false" readonly></textarea>
+            <div class="mt-3 d-flex justify-content-end gap-2">
+              <button id="saveBtn" class="btn btn-cyan d-none">💾 Save</button>
+              <button id="deleteBtn" class="btn btn-danger d-none">🗑️ Delete</button>
+              <button id="copyBtn" class="btn btn-outline-light">📋 Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="text-center text-light py-3 mt-5 border-top footer-glow">
+    <small>© 2025 CodeVault Pro | Built by Dhanush</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
