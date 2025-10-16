@@ -1,4 +1,3 @@
-/* ===== GENERAL STYLING ===== */
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
@@ -6,7 +5,6 @@ body {
   min-height: 100vh;
 }
 
-/* CYAN ACCENT */
 .text-cyan { color: #00e0ff !important; }
 
 .btn-cyan {
@@ -21,12 +19,10 @@ body {
   box-shadow: 0 0 15px #00e0ff55;
 }
 
-/* NAVBAR */
-.navbar { background: linear-gradient(90deg, #0b132b, #1c2541); }
-.navbar:hover { background: linear-gradient(90deg, #1c2541, #3a506b); }
+.navbar { background-color: #0b132b; transition: background 0.3s; }
+.navbar:hover { background-color: #1c2541; }
 .nav-link:hover { color: #00e0ff !important; }
 
-/* CODE CARD */
 .code-card {
   background: rgba(255,255,255,0.05);
   border-radius: 15px;
@@ -36,14 +32,12 @@ body {
 }
 .code-card:hover { box-shadow: 0 0 25px #00e0ff44; }
 
-/* FILE CARD */
 .file-card {
   background: rgba(0,0,0,0.25);
   border-radius: 15px;
   backdrop-filter: blur(5px);
 }
 
-/* EDITOR */
 .editor-box {
   height: 60vh;
   font-family: 'Fira Code', monospace;
@@ -59,17 +53,11 @@ body {
 .editor-box.readonly { cursor: not-allowed; }
 .editor-box:hover { box-shadow: 0 0 15px #00e0ff44; }
 
-/* SCROLLBAR */
 .editor-box::-webkit-scrollbar { width: 8px; }
 .editor-box::-webkit-scrollbar-thumb { background-color: #00e0ff66; border-radius: 4px; }
 .editor-box::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
 
-/* FOOTER */
-.footer-glow {
-  background: rgba(0,224,255,0.05);
-  border-top: 1px solid #00e0ff33;
-}
+.footer-glow { background: rgba(0,224,255,0.05); border-top: 1px solid #00e0ff33; }
 
-/* ANIMATIONS */
 .fade-in { animation: fadeIn 1s ease; }
 @keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
